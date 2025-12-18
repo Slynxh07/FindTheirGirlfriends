@@ -6,7 +6,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(SRC_DIR "${CMAKE_SOURCE_DIR}/src")
 set(INCLUDE_DIR "${CMAKE_SOURCE_DIR}/include")
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 find_package(raylib 5.5 QUIET)
 
@@ -23,11 +22,11 @@ endif()
 
 file(GLOB SRC_FILES "${SRC_DIR}/*.cpp")
 
-add_executable(breakout ${SRC_FILES})
+add_executable(FindTheirGirlfriends ${SRC_FILES})
 
-target_include_directories(breakout PRIVATE ${INCLUDE_DIR})
+target_include_directories(FindTheirGirlfriends PRIVATE ${INCLUDE_DIR})
 
-target_link_libraries(breakout raylib)
+target_link_libraries(FindTheirGirlfriends raylib)
 
 if (MSVC)
     target_compile_options(${PROJECT_NAME} PRIVATE /W4)
