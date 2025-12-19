@@ -24,6 +24,14 @@ file(GLOB SRC_FILES "${SRC_DIR}/*.cpp")
 
 add_executable(FindTheirGirlfriends ${SRC_FILES})
 
+add_custom_command(
+    TARGET FindTheirGirlfriends
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+            ${CMAKE_SOURCE_DIR}/resources
+            $<TARGET_FILE_DIR:FindTheirGirlfriends>/resources
+)
+
 target_include_directories(FindTheirGirlfriends PRIVATE ${INCLUDE_DIR})
 
 target_link_libraries(FindTheirGirlfriends raylib)

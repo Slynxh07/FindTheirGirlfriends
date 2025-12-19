@@ -17,3 +17,7 @@ Thumbs.db
 # Editor configs
 .vscode/
 .idea/
+
+# Temp Image Files
+*.png
+*.jpeg

@@ -9,7 +9,8 @@ int main()
 
     while (!WindowShouldClose())
     {
-        game.update();
+        float dt = GetFrameTime();
+        game.update(dt);
         game.draw();
     }
 
