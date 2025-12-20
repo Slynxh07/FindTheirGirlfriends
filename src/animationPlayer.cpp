@@ -7,6 +7,7 @@ AnimationPlayer::AnimationPlayer()
 
 void AnimationPlayer::setAnimation(Animation animation)
 {
+    if (this->animation.has_value() && this->animation.value().getID() == animation.getID()) return;
     this->animation = animation;
     this->rects = animation.getRects();
 }

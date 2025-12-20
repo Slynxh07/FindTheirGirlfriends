@@ -2,12 +2,13 @@
 
 Animation::Animation() {}
 
-Animation::Animation(Texture2D texture, int framesPerSecond, std::vector<Rectangle> rects, int length)
+Animation::Animation(Texture2D texture, int framesPerSecond, std::vector<Rectangle> rects, int length, int id)
 {
     this->textureAtlas = texture;
     this->framesPerSecond = framesPerSecond;
     this->rectangles = rects;
     this->rectanglesLength = length;
+    this->id = id;
 }
 
 int Animation::getFPS()
@@ -18,6 +19,11 @@ int Animation::getFPS()
 int Animation::getRectLength()
 {
     return rectanglesLength;
+}
+
+int Animation::getID() 
+{
+    return id;
 }
 
 std::vector<Rectangle> Animation::getRects()
