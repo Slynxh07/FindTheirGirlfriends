@@ -14,7 +14,10 @@ class Player {
         Vector2 pos;
         Vector2 velocity;
         Animation walkingAnimation;
+        Animation jumpingAnimation;
         Animation idleAnimation;
         AnimationPlayer animationPlayer;
         float speed;
+        bool facingLeft;
+        bool grounded;
 };

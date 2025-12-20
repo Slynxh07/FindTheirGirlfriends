@@ -10,6 +10,7 @@ void Game::draw()
     BeginDrawing();
     ClearBackground(RAYWHITE);
     player.draw();
+    DrawFPS(10, 10);
     EndDrawing();
 }
 

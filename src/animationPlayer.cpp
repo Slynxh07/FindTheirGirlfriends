@@ -12,7 +12,7 @@ void AnimationPlayer::setAnimation(Animation animation)
     this->rects = animation.getRects();
 }
 
-void AnimationPlayer::playAnimation(Rectangle dest, Vector2 origin, float rotation, Color tint)
+void AnimationPlayer::playAnimation(Rectangle dest, Vector2 origin, float rotation, Color tint, bool flip)
 {
     if (!animation.has_value())
     {
@@ -22,6 +22,12 @@ void AnimationPlayer::playAnimation(Rectangle dest, Vector2 origin, float rotati
     int index = (int)(GetTime() * animation->getFPS()) % animation->getRectLength();
 
     Rectangle source = rects.at(index);
+
+    if (flip)
+    {
+        source.x += source.width;
+        source.width *= -1;
+    }
 
     DrawTexturePro(animation->getAtlas(), source, dest, origin, rotation, tint);
 }
