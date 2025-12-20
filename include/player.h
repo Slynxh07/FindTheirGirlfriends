@@ -1,6 +1,8 @@
 #pragma once
 
 #include "raylib.h"
+#include "animation.h"
+#include "animationPlayer.h"
 
 class Player {
     public:
@@ -11,8 +13,8 @@ class Player {
     private:
         Vector2 pos;
         Vector2 velocity;
-        Texture2D atlas;
-        Rectangle textureRect;
+        Animation walkingAnimation;
+        AnimationPlayer animationPlayer;
         float speed;
         bool jumping;
         bool running;
