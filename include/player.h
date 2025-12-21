@@ -1,6 +1,7 @@
 #pragma once
 
 #include "raylib.h"
+#include "raymath.h"
 #include "animation.h"
 #include "animationPlayer.h"
 
@@ -18,6 +19,7 @@ class Player {
         Animation idleAnimation;
         AnimationPlayer animationPlayer;
         float speed;
+        float jumpSpeed;
         bool facingLeft;
         bool grounded;
 };
