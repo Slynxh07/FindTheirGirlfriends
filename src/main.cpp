@@ -1,10 +1,13 @@
 #include "raylib.h"
 #include "raymath.h"
 #include "game.h"
+#include "assetManager.h"
 
 int main()
 {
     InitWindow(1280, 720, "Find Their Girlfriends");
+    
+    AssetManager::LoadAssets();
 
     SetTargetFPS(0);
 
@@ -18,6 +21,8 @@ int main()
         game.update(dt);
         game.draw();
     }
+
+    AssetManager::UnloadAssets();
 
     return 0;
 }
