@@ -18,9 +18,12 @@ class Player {
         void handleInput();
         void applyPhysics(float dt);
         void updateAnimation();
+        void checkGroundCollisions();
 
         Vector2 pos;
         Vector2 velocity;
+        Rectangle hitBox;
+        Rectangle groundCheck;
         Animation walkingAnimation;
         Animation sprintAnimation;
         Animation jumpingAnimation;

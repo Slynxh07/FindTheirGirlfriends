@@ -2,8 +2,9 @@
 
 #include "animation.h"
 #include "raylib.h"
-#include <optional>
+#include <vector>
 #include <iostream>
+#include <optional>
 
 class AnimationPlayer {
     public:

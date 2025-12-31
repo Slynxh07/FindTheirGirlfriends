@@ -6,7 +6,7 @@
 class Animation {
     public:
         Animation();
-        Animation(Texture2D texture, int framesPerSecond, std::vector<Rectangle>, int length, int id);
+        Animation(Texture2D texture, int framesPerSecond, std::vector<Rectangle> rects, int length, int id);
         int getFPS();
         int getRectLength();
         int getID();

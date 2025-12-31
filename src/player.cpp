@@ -1,5 +1,4 @@
 #include "player.h"
-#include <iostream>
 
 constexpr float GRAVITY = 1750.0f;
 
@@ -7,6 +6,8 @@ Player::Player()
 {
     velocity = { 0, 0 };
     pos = { GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f };
+    hitBox = { 0, 0, 75, 80 };
+    groundCheck = { 0, 0, 20, 11 };
     speed = 100.0f;
     sprintSpeed = 300.0f;
     jumpSpeed = -500.0f;
@@ -19,7 +20,7 @@ Player::Player()
     walkingAnimation = Animation(AssetManager::playerWalking, 12, 
     std::vector<Rectangle>{ {0, 0, 128, 128 }, {128, 0, 128, 128 }, {256, 0, 128, 128 }, {384, 0, 128, 128 }, {512, 0, 128, 128 }, {640, 0, 128, 128 }, 
     {768, 0, 128, 128 }, {896, 0, 128, 128 }, {1024, 0, 128, 128 }, {1152, 0, 128, 128 }, {1280, 0, 128, 128 }, {1408, 0, 128, 128 } }, 12, 1);
-    jumpingAnimation = Animation(AssetManager::playerJumping, 6,
+    jumpingAnimation = Animation(AssetManager::playerJumping, 12,
     std::vector<Rectangle> { {0, 0, 128, 128 }, {128, 0, 128, 128 }, {256, 0, 128, 128 }, {384, 0, 128, 128 }, {512, 0, 128, 128 }, {640, 0, 128, 128 }, 
     {768, 0, 128, 128 }, {896, 0, 128, 128 }, {1024, 0, 128, 128 }, {1152, 0, 128, 128 } }, 10, 2);
     sprintAnimation = Animation(AssetManager::playerSprinting, 18,
@@ -31,11 +32,17 @@ Player::Player()
 void Player::draw()
 {
     Rectangle destRect = { pos.x, pos.y, 128, 128 };
+    //DrawRectangleRec(hitBox, BLACK);
     animationPlayer.playAnimation(destRect, { 64, 64 }, 0, WHITE, facingLeft);
+    //DrawRectangleRec(groundCheck, BLACK);
 }
 
 void Player::update(float dt)
 {
+    hitBox.x = pos.x - 37.5;
+    hitBox.y = pos.y - 10;
+    groundCheck.x = pos.x - 7.5;
+    groundCheck.y = pos.y + 55;
     handleInput();
     applyPhysics(dt);
     updateAnimation();
@@ -72,7 +79,7 @@ void Player::applyPhysics(float dt)
 
     pos += velocity * dt;
 
-    if (pos.y > GetScreenHeight() - 64) 
+    if (pos.y > GetScreenHeight() - 64)
     {
         grounded = true;
     }
@@ -102,4 +109,9 @@ void Player::updateAnimation()
             case PlayerState::Jump: animationPlayer.setAnimation(jumpingAnimation); break;
         }
     }
+}
+
+void Player::checkGroundCollisions()
+{
+    
 }
