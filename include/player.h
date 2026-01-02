@@ -5,6 +5,7 @@
 #include "animation.h"
 #include "animationPlayer.h"
 #include "assetManager.h"
+#include <vector>
 
 enum class PlayerState { Idle, Walk, Sprint, Jump };
 
@@ -12,13 +13,13 @@ class Player {
     public:
         Player();
         void draw();
-        void update(float dt);
+        void update(float dt, const std::vector<Rectangle>& groundObjects);
 
     private:
         void handleInput();
         void applyPhysics(float dt);
         void updateAnimation();
-        void checkGroundCollisions();
+        void checkGroundCollisions(const std::vector<Rectangle>& groundObjects);
 
         Vector2 pos;
         Vector2 velocity;
@@ -33,8 +34,8 @@ class Player {
         float speed;
         float sprintSpeed;
         float jumpSpeed;
+        float jumpBufferTimer;
         bool facingLeft;
         bool grounded;
         bool sprinting;
-        bool jumpRequested;
 };

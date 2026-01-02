@@ -2,6 +2,7 @@
 
 #include "raylib.h"
 #include "player.h"
+#include "level.h"
 
 class Game {
     public:
@@ -10,5 +11,6 @@ class Game {
         void update(float dt);
     private:
         bool running;
+        Level currLevel;
         Player player;
 };
