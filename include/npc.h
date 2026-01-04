@@ -7,7 +7,12 @@
 
 class NPC {
     public:
-        NPC(std::string name, Rectangle hitBox, Animation walking, Animation idle);
+        NPC();
+        NPC(int id, std::string name, Rectangle hitbox, Vector2 pos, Vector2 velocity);
+        NPC(int id, std::string name, Rectangle hitBox, Vector2 pos, Vector2 velocity, Animation walking, Animation idle);
+        /*virtual*/ void draw();
+        /*virtaul*/ void update();
+        int getID();
 
     private:
         std::string name;
@@ -15,4 +20,8 @@ class NPC {
         AnimationPlayer animationplayer;
         Animation walking;
         Animation idle;
+        Vector2 pos;
+        Vector2 velocity;
+
+        int id;
 };

@@ -3,7 +3,7 @@
 Game::Game()
 {
     running = true;
-    currLevel = Level();
+    currLevel = Level(1, std::vector<NPC>{john});
 }
 
 void Game::draw()

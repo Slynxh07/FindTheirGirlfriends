@@ -3,6 +3,7 @@
 #include "raylib.h"
 #include "player.h"
 #include "level.h"
+#include "npc.h"
 
 class Game {
     public:
@@ -13,4 +14,5 @@ class Game {
         bool running;
         Level currLevel;
         Player player;
+        NPC john;
 };
