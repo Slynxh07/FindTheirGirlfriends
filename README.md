@@ -1,1 +1,1 @@
-FindTheirGirlfriends - developed by me
+FindTheirParthners - developed by me
